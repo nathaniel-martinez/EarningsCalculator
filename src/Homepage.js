@@ -1,11 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function Homepage() {
-	const navigate = useNavigate();
+	const history = useHistory();
 	
 	const leaveHome = () => {
-		navigate("/calculate");
+		history.push("/calculate");
 	}
 
   return (
@@ -16,4 +16,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Navbar;
