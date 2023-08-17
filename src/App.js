@@ -12,11 +12,11 @@ function App() {
 		<div className="container">
 			<header>
 				<p className="display-2 text-center container-fluid">Earnings Calculator</p>
-	  			<NavBar/>
+	  			<Navbar/>
 			</header>
 	  		<Routes>
 	  			<Route path="/" element={<Homepage/>}/>
-				<Route path="/calculate" element={Calculate/>}/>
+				<Route path="/calculate" element={<Calculate/>}/>
 	  			<Route path="/compare" element={<Compare/>}/>
 	  		</Routes>
 		</div>
