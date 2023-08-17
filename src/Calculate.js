@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Investment from "./Investment.js";
 
-function Calculate(){
+function Calculate({ r }){
 	const [calcType, setCalcType] = useState("");
 	const [investments, setInvestments] = useState([]);
 
@@ -28,7 +28,9 @@ function Calculate(){
 					return acc;
 				});
 		console.log("Data obj: " + Object.keys(dataObj));
-		setInvestments([...investments, <Investment value={dataObj}/>]);
+		let index = investments.length;
+		setInvestments([...investments, <Investment value={dataObj} index={investments.length} getter={investments} setter={setInvestments}/>]);
+		r.current = !r.current;
 	};
 
 	const fixedPrinciple = () => {
@@ -153,6 +155,10 @@ function Calculate(){
 				<label  htmlFor="fixed-radio">No</label>
 			</form>*/}
 			<div>{fixedPrinciple()}</div>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
 			<ul>{investments}</ul>
 		</div>
 	);

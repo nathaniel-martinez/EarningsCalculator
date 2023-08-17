@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 
-const Investment = ({ value }) => {
+const Investment = ({ value, index, getter, setter }) => {
 	let [investment, setInvestment] = useState();
 
 	const earningFunc = (val) => {
@@ -41,14 +41,23 @@ const Investment = ({ value }) => {
 		localStorage.setItem(`${value.name}`, JSON.stringify(newObj))
 		const removeEarning = () => {
 			localStorage.removeItem(`${value.name}`);
+			setter(getter.splice(index, 1));
 		};
 
 		return (
-			<div>
+			<div className="border">
 				<span>LifeSpan: {value.lifespan}</span>	
+				&nbsp;
+				&nbsp;
 				<span>Prinipal: {value.principal}</span>	
+				&nbsp;
+				&nbsp;
 				<span>Accrue: {value.accrue}</span>	
+				&nbsp;
+				&nbsp;
 				<span>Earnings: {value.total}</span>
+				&nbsp;
+				&nbsp;
 				<button onClick={removeEarning}>Delete</button>
 			</div>
 		);
@@ -63,7 +72,7 @@ const Investment = ({ value }) => {
 	};
 
 	useEffect(() => {
-		if(value.hasOwnProperty("added")){
+		/*if(value.hasOwnProperty("added")){
 			setInvestment(addedCalculation());
 		}
 		else if (value.hasOwnProperty("addedRate")){
@@ -71,7 +80,8 @@ const Investment = ({ value }) => {
 		}
 		else {
 			setInvestment(fixedCalculation());
-		}
+		}*/
+			setInvestment(fixedCalculation());
 	}, []);
 
 	return (<li>{investment}</li>);
