@@ -10,7 +10,7 @@ function Homepage() {
 
   return (
 	  <div className="container-fluid">
-	  	<p>{"Welcome to my Earnings Calculator! Use this calculator to find the returns on your investments and to compare different investment options"}</p>
+	  	<p>{"Welcome to my Earnings Calculator! Use this calculator to find the returns on your investments"}</p>
 	  	<div><button onClick={leaveHome}>Get Started!</button></div>
 	  </div>
   );
